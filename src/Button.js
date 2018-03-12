@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import{ Counter } from './Counter'
+import{ data } from './Data'
 
-
- export  class Button extends React.Component{
+const newList=[]
+ 
+export  class Button extends React.Component{
    constructor(props){
        super(props)
        this.state={
@@ -13,7 +15,19 @@ import{ Counter } from './Counter'
        this.handleClick=this.handleClick.bind(this);
    }
    
-   handleClick(){
+   handleClick(id){
+  //console.log(this.props.id)
+  if(this.state.isToggleOn){
+      
+  }
+  {data.products.forEach(product=>{
+    if(this.props.id===product.id){
+      newList.push(product);
+      console.log(newList);
+      
+    }
+    //storeProduct(checkList);
+  })}
 
     this.props.onClick(this.state.isToggleOn ? +1:-1)
     this.setState(prevState =>({
@@ -25,7 +39,7 @@ import{ Counter } from './Counter'
 render(){
         return(
             <div>
-            <button onClick={this.handleClick}>{this.state.isToggleOn ?
+            <button onClick={this.handleClick} id={this.props.id}>{this.state.isToggleOn ?
                 "add to cart": "remove from cart"}</button>
             </div>
         )

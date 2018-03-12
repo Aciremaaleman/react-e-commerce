@@ -16,7 +16,7 @@ import{ Button } from './Button'
             <img/>
             <p>{this.props.description}</p>
             <p>{this.props.price}</p>
-            <Button onClick={this.props.changeCounter} />
+            <Button id={this.props.id} onClick={this.props.changeCounter} />
             </div>
         )
     }

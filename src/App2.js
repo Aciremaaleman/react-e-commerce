@@ -5,20 +5,13 @@ import Product from './Product';
 import {data } from './Data';
 import Counter from './Counter';
 import {Link} from 'react-router-dom';
-import Order from './Order';
 
 
-
-
-
-
-class App extends Component {
+class App2 extends Component {
   constructor(props){
     super(props)
     this.state={
       count:0,
-      order:{},
-      products:{}
       
     }
   }
@@ -29,9 +22,8 @@ class App extends Component {
       count: this.state.count+status,
       isToggleOn:!this.state.isToggleOn,
      
-     
     })
-  // console.log(status);
+   console.log(status);
   }  
 
   
@@ -40,10 +32,10 @@ class App extends Component {
       <div className="Title">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Link to='/' activeClassName='hurray'><h1 className="App-title">Name of the store</h1></Link>
+          <Link to='/' activeClassName='hurray'><h1 className="App-title">Checkout</h1></Link>
           <span>Carrito</span>
           <Counter count={this.state.count}/>
-          <Link to='/checkout' activeClassName='hurray'>Checkout</Link>
+          <button>checkout</button>
         </header>
         <p className="App-intro">
           Lista de productos
@@ -51,12 +43,11 @@ class App extends Component {
         {data.products.map((product)=><Product 
         changeCounter={this.changeCounter} title={product.title} 
         description={product.description} price={product.price} 
-        img={product.imageUrl} id={product.id}/>)}
+        img={product.imageUrl} />)}
       </div>
     );
   }
 }
 
 
-
-export default App;
+export default App2
